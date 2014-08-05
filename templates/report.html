@@ -1,0 +1,27 @@
+
+
+{% extends "base.html" %}
+{% block title %}Report{% endblock %}
+
+{% block jumbotron %}
+        <h1>Report</h1>
+{% endblock %}
+{% block content %}
+
+    <table class="table">
+        <tr><th>Name</th><th>Status</th><th>Time</th><th>Info</th></tr>
+    {% for status in data %}
+        <tr><td>{{status.name}}</td>
+            <td>
+                {% if status.status %}
+                    UP
+                {% else %}
+                    DOWN
+                {% endif %}
+            </td>
+            <td>{{status.updated|relative_time}}</td>
+            <td><a href="#" title="{{status.error_text}}">info</a></td>
+        </tr>
+    {% endfor %}
+</table>
+{% endblock %}

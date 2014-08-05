@@ -1,0 +1,4 @@
+cron:
+- description: test if servers are up
+  url: /gocron
+  schedule: every 5 minutes

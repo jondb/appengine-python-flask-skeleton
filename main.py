@@ -30,6 +30,7 @@ def hello():
 def log_status(name, status):
     """Return a friendly HTTP greeting."""
     error_text = flask.request.args.get('error_text', None)
+    status = int(status)
     m = model.Status.update_status(name, status, error_text)
     return 'OK'
 
